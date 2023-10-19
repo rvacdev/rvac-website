@@ -36,11 +36,6 @@ dt{font-weight:bold;
 td,th{padding:0.25em;
 	border: 1px solid #000;
 }
-tr:nth-of-type(even){background-color:#EEE;}
-caption{font-size: 120%;
-	font-weight: bold;
-	margin: .5em;
-}
 nav a:link    {color:#000;}
 nav a:visited {color:#000;}
 nav a:hover   {color:#FFF;}
@@ -49,22 +44,13 @@ footer{font-style: italic;
 	font-size: small;
 	margin-top: 15px;
 }
-h2{ font-family:"Times New Roman",serif;
-}
+
 section{padding-left: 3em;
 	padding-right: 3em;
 }
 input,datalist,textarea,select{margin-bottom:1.5em}
-#carlos{height:200px;
-	width:241px;
-	background-size: 100% 100%;
-	
-	display: block;
-	float: left;
-	margin-right: 1.5em;
-}
 #tbanner{
-	float:right;
+	float:left;
 	height:2.75em;
 	width:6em;
 	background-size: 100% 100%;
@@ -78,34 +64,7 @@ input,datalist,textarea,select{margin-bottom:1.5em}
 	box-shadow:4px 4px #580;
 	width: 85%;
 }
-#flow{display: grid;
-	grid-template-columns:auto auto;
-	grid-template-rows:auto;
-	margin-bottom:1em;
-}
-#address{display: grid;
-  grid-template-columns:auto auto auto;
-  grid-template-rows:auto;
-  background-color:#EEE;
-  border-color:#8A0;
-  border-style: solid;
-  padding:.5em;
-  margin-bottom:1em;
-}
-#donate{display: grid;
-	grid-template-areas:
-		'left top'
-		'left bottom';
-	grid-template-columns:40vw 40vw;
-	grid-template-rows:auto;
-	margin-bottom:1em;
-}
-.wide{max-width: 300px;}
-.med{max-width: 225px;}
-.thin{max-width: 215px;}
-.item1{grid-area:left;}
-.item2{grid-area:top;}
-.item3{grid-area:bottom;}
+
 .content{height: 25vh;
 	padding-top: 2em;
 	padding-left: 10%;
@@ -114,18 +73,6 @@ input,datalist,textarea,select{margin-bottom:1.5em}
 	padding-top: 2em;
 	padding-left: 10%;
 }
-.gallery{display:flex; flex-wrap: wrap;
-	justify-content: space-around;
-	width:70%; margin:auto;}
-figure{position:relative;
-	z-index:1; opacity: .75;
-	background-color:#FFF;color:rgba(0,0,0,0);
-	margin:1em; font-size:.5em;
-	transition:all ease-out 1.5s;}
-figure:hover {opacity:1; z-index:999;
-	box-shadow:3px 3px 3px #333;
-	color:rgba(0,0,0,1);
-	transform:scale(1.25);}
 .dropdown {
 		position: relative;
 		display: inline-block;
