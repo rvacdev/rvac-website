@@ -4,7 +4,7 @@ body{background-color:#DDD;
 header{
 	background-size: 100% 300%;
 	font-family: Arial, Calibri, sans-serif;
-	color: #FFF;
+	color: #ffffff;
 	}
 nav{text-align: left;
 	background-color: #8A0;
@@ -50,10 +50,12 @@ section{padding-left: 3em;
 }
 input,datalist,textarea,select{margin-bottom:1.5em}
 #tbanner{
-	float:left;
-	height:2.75em;
-	width:6em;
 	background-size: 100% 100%;
+}
+#logo{height: 156px;
+	width:156px;
+	float:left;
+	background-image: url("media/logo-main_no_background.webp");
 }
 #wrapper{background-color:#FFF;
 	margin: auto;
@@ -64,10 +66,17 @@ input,datalist,textarea,select{margin-bottom:1.5em}
 	box-shadow:4px 4px #580;
 	width: 85%;
 }
-
-.content{height: 25vh;
+#endowment{height: 10vh;
+	width:10vw;
+	background-size: 100% 100%;
+	display: block;
+	margin-right: 1.5em;
+	background-image: url("media/NEA logo 1.webp");
+}
+.content{height: 20vh;
 	padding-top: 2em;
 	padding-left: 10%;
+	background-color: #580;
 }
 .home{height: 35vh;
 	padding-top: 2em;
