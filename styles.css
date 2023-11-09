@@ -45,6 +45,9 @@ section{padding-left: 3em;
 	padding-right: 3em;
 }
 input,datalist,textarea,select{margin-bottom:1.5em}
+#bold{
+	font-weight: bold;
+}
 #navb{
 	background-color: #8A0;
 	color: #ffffff;
