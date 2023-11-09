@@ -133,3 +133,26 @@ input,datalist,textarea,select{margin-bottom:1.5em}
 		z-index: 1;
 	  }
 .dropdown:hover .dropdown-content {display: block;}
+.center {
+ 		text-align: center;
+}
+#events {
+  font-family: Arial, Calibri, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#events td, #events th {
+  border: 1.5px solid #000;
+  padding: 10px;
+}
+
+#events tr:hover {background-color: #86FC5D;}
+
+#events th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: left;
+  background-color: #580;
+  color: white;
+}
