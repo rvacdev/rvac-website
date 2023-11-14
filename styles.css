@@ -48,6 +48,31 @@ input,datalist,textarea,select{margin-bottom:1.5em}
 #bold{
 	font-weight: bold;
 }
+#face{
+	background-size: 100% 100%;
+	width: 3em;
+	height: 3em;
+	background-image: url("media/Facebook_Logo_Primary.png");
+	background-color: #FFF;
+	border:none;
+	border-radius: 50%;
+}
+#face:hover{
+	width: 3.1em;
+	height: 3.1em;
+}
+#inst{
+	background-size: 100% 100%;
+	width: 3em;
+	height: 3em;
+	background-image: url("media/Instagram_Glyph_Gradient.png");
+	background-color: #FFF;
+	border:none;
+}
+#inst:hover{
+	width: 3.1em;
+	height: 3.1em;
+}
 #navb{
 	background-color: #8A0;
 	color: #ffffff;
