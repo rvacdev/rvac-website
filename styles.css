@@ -45,7 +45,7 @@ section{padding-left: 3em;
 	padding-right: 3em;
 }
 input,datalist,textarea,select{margin-bottom:1.5em}
-#bold{
+.bold{
 	font-weight: bold;
 }
 #face{
@@ -139,7 +139,28 @@ input,datalist,textarea,select{margin-bottom:1.5em}
 	display: block;
 	background-image: url("media/NEA logo 1.webp");
 }
+#head1{
+	margin-top: 0em;
+	padding-bottom: 1.5em;
+	text-align: center;
+}
 
+#Jennifer{
+	width: 15vw;
+	height: 50vh;
+	background-image: url("media/Jennifer.JPG");
+	background-size: 100% 100%;
+}
+.banner{height: 25vh;
+	margin:auto;
+	background-image: url("media/frontDrawn.png");
+	background-size: 100% 100%;
+}
+.othercontent{height: 10vh;
+	padding-top: 1.5em;
+	padding-bottom:.5em;
+	background-color: #580;
+}
 .content{height: 20vh;
 	padding-top: 2em;
 	background-color: #580;
