@@ -2,7 +2,7 @@ body{background-color:#DDD;
 	font-family: Arial, Calibri, sans-serif;
 	font-size:120%}
 header{
-	background-size: 100% 300%;
+
 	font-family: Arial, Calibri, sans-serif;
 	color: #ffffff;
 	text-align: center;
@@ -145,6 +145,92 @@ input,datalist,textarea,select{margin-bottom:1.5em}
 	text-align: center;
 }
 
+#student{
+	color:white;
+	background-image: url("media/starry night.jpg");
+	width: 281px;
+	height: 281px;
+}
+#student:hover {opacity: 80%;}
+
+#individual{
+	color:white;
+	background-image: url("media/individual.jpg");
+	width: 281px;
+	height: 281px;
+}
+#individual:hover {opacity: 80%;}
+
+#family{
+	color:white;
+	background-image: url("media/family.webp");
+	width: 281px;
+	height: 281px;
+}
+#family:hover {opacity: 80%;}
+
+#familyLarge{
+	color:white;
+	background-image: url("media/familyLarge.webp");
+	width: 281px;
+	height: 281px;
+}
+#familyLarge:hover {opacity: 80%;}
+
+#corporate{
+	color:white;
+	background-image: url("media/corprate.webp");
+	width: 281px;
+	height: 281px;
+}
+#corporate:hover {opacity: 80%;}
+
+#benefactor{
+	color:white;
+	background-image: url("media/benefactor.webp");
+	width: 281px;
+	height: 281px;
+}
+#benefactor:hover {opacity: 80%;}
+
+#sponsor{
+	color:white;
+	background-image: url("media/sponsor.webp");
+	width: 281px;
+	height: 281px;
+}
+#sponsor:hover {opacity: 80%;}
+
+#patron{
+	color:white;
+	background-image: url("media/patron.webp");
+	width: 281px;
+	height: 281px;
+}
+#patron:hover {opacity: 80%;}
+
+#monet{
+	color:white;
+	background-image: url("media/monet.webp");
+	width: 281px;
+	height: 281px;
+}
+#monet:hover {opacity: 80%;}
+
+#donate{
+	color:white;
+	background-image: url("media/donate.webp");
+	width: 281px;
+	height: 281px;
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+ 	margin-top: 1vh;
+}
+#donate:hover {opacity: 80%;}
+
+
+
 #Jennifer{
 	width: 15vw;
 	height: 50vh;
@@ -179,8 +265,17 @@ input,datalist,textarea,select{margin-bottom:1.5em}
 		z-index: 1;
 	  }
 .dropdown:hover .dropdown-content {display: block;}
-.center {
- 		text-align: center;
+
+.grid{
+	display:grid;
+	grid-template-columns: auto auto auto;
+}
+.gridContent{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+	display: inline-grid;
 }
 #events {
   font-family: Arial, Calibri, sans-serif;
