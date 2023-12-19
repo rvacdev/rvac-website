@@ -45,7 +45,7 @@ td,th{padding:0.25em;
 	border: 1px solid #000;
 }
 
-/*classes*/
+/*ids*/
 
 #benefactor{
 	color:white;
@@ -139,8 +139,8 @@ td,th{padding:0.25em;
 	height: 3.1em;
 }
 #Jennifer{
-	width: 15vw;
-	height: 50vh;
+	width: 16%;
+	height: 100%;
 	background-image: url("media/Jennifer.JPG");
 	background-size: 100% 100%;
 }
@@ -226,7 +226,7 @@ td,th{padding:0.25em;
 }
 
 
-/*ids*/
+/*classes*/
 
 .banner{height: 25vh;
 	margin:auto;
