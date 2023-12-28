@@ -87,6 +87,23 @@ td,th{padding:0.25em;
 	display: block;
 	background-image: url("media/NEA logo 1.webp");
 }
+#events {
+	font-family: Arial, Calibri, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+#events td, #events th {
+	border: 1.5px solid #000;
+	padding: 10px;
+}
+#events tr:hover {background-color: #86FC5D;}
+#events th {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: left;
+	background-color: #580;
+	color: white;
+}
 #face{
 	background-size: 100% 100%;
 	width: 3em;
@@ -250,24 +267,7 @@ td,th{padding:0.25em;
 	z-index: 1;
   }
 .dropdown:hover .dropdown-content {display: block;}
-#events {
-	font-family: Arial, Calibri, sans-serif;
-	border-collapse: collapse;
-	width: 100%;
-  }
-  #events td, #events th {
-	border: 1.5px solid #000;
-	padding: 10px;
-  }
-  #events tr:hover {background-color: #86FC5D;}
-  #events th {
-	padding-top: 5px;
-	padding-bottom: 5px;
-	text-align: left;
-	background-color: #580;
-	color: white;
-  }
-  .grid{
+.grid{
 	display:grid;
 	grid-template-columns: auto auto auto;
 }
@@ -277,6 +277,17 @@ td,th{padding:0.25em;
 	margin-top: 1vh;
 	margin-bottom: 1vh;
 	display: inline-grid;
+}
+.gridCart{
+	display:grid;
+	grid-template-columns: auto auto;
+}
+.gridCartContent{
+	border-top: 1px solid #000;
+	border-left: 1px solid #000;
+	padding:1em;
+	display:grid;
+	grid-template-columns: auto auto;
 }
 .home{height: 35vh;
 	padding-top: 2em;
