@@ -1,0 +1,300 @@
+input,datalist,textarea,select{margin-bottom:1.5em}
+
+body{background-color:#DDD;
+	font-family: Arial, Calibri, sans-serif;
+	font-size:120%
+}
+dt{font-weight:bold;
+		font-size:12pt;
+		margin-top:10px;
+		margin-bottom:4px;
+}
+fieldset{
+		background-color:#DDD;
+}
+footer{text-align: center;
+		font-style: italic;
+		font-size: small;
+		margin-top: 15px;
+}
+header{
+	font-family: Arial, Calibri, sans-serif;
+	color: #ffffff;
+	text-align: center;
+}
+nav{text-align: left;
+	background-color: #8A0;
+	font-weight: bold;
+	margin: 0;
+	width: 100%;
+	height: auto;
+}
+nav ul{
+	margin: 0; 
+	padding: 0;
+	list-style-type: none;
+}
+nav li{
+	margin: 0;
+	display: inline;
+}
+section{padding-left: 3em;
+	padding-right: 3em;
+}
+td,th{padding:0.25em;
+	border: 1px solid #000;
+}
+
+/*ids*/
+
+#benefactor{
+	color:white;
+	background-image: url("media/benefactor.webp");
+	width: 281px;
+	height: 281px;
+}
+#benefactor:hover {opacity: 80%;}
+#cart{
+	border-radius: 4px;
+	background-size: 100% 100%;
+	width: 3em;
+	height: 3em;
+	background-image: url("media/cart.png")
+}
+#corporate{
+	color:white;
+	background-image: url("media/corprate.webp");
+	width: 281px;
+	height: 281px;
+}
+#corporate:hover {opacity: 80%;}
+#donate{
+	color:white;
+	background-image: url("media/donate.webp");
+	width: 281px;
+	height: 281px;
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+ 	margin-top: 1vh;
+}
+#donate:hover {opacity: 80%;}
+#endowment{
+	margin: auto;
+	height: 18vh;
+	width:18vw;
+	background-size: 100% 100%;
+	display: block;
+	background-image: url("media/NEA logo 1.webp");
+}
+#events {
+	font-family: Arial, Calibri, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+#events td, #events th {
+	border: 1.5px solid #000;
+	padding: 10px;
+}
+#events tr:hover {background-color: #86FC5D;}
+#events th {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: left;
+	background-color: #580;
+	color: white;
+}
+#face{
+	background-size: 100% 100%;
+	width: 3em;
+	height: 3em;
+	background-image: url("media/Facebook_Logo_Primary.png");
+	background-color: #FFF;
+	border:none;
+	border-radius: 50%;
+}
+#face:hover{
+	width: 3.1em;
+	height: 3.1em;
+}
+#family{
+	color:white;
+	background-image: url("media/family.webp");
+	width: 281px;
+	height: 281px;
+}
+#family:hover {opacity: 80%;}
+#familyLarge{
+	color:white;
+	background-image: url("media/familyLarge.webp");
+	width: 281px;
+	height: 281px;
+}
+#familyLarge:hover {opacity: 80%;}
+#head1{
+	margin-top: 0em;
+	padding-bottom: 1.5em;
+	text-align: center;
+}
+#individual{
+	color:white;
+	background-image: url("media/individual.jpg");
+	width: 281px;
+	height: 281px;
+}
+#individual:hover {opacity: 80%;}
+#inst{
+	background-size: 100% 100%;
+	width: 3em;
+	height: 3em;
+	background-image: url("media/Instagram_Glyph_Gradient.png");
+	background-color: #FFF;
+	border:none;
+}
+#inst:hover{
+	width: 3.1em;
+	height: 3.1em;
+}
+#Jennifer{
+	width: 16%;
+	height: 100%;
+	background-image: url("media/Jennifer.JPG");
+	background-size: 100% 100%;
+}
+#logo{
+	border:none;
+	height: 5.5em;
+	width: 5.5em;
+	background-color: #8A0;
+	background-size: 100% 100%;
+	background-image: url("media/logo-main_no_background.webp");
+}
+#monet{
+	color:white;
+	background-image: url("media/monet.webp");
+	width: 281px;
+	height: 281px;
+}
+#monet:hover {opacity: 80%;}
+#navb{
+	background-color: #8A0;
+	color: #ffffff;
+	border: none; 
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	padding-top: 1.25em;
+	padding-bottom: 1.75em;
+	text-align: center;
+	font-size: 15pt;
+}
+#navb:hover{
+	background-color: #580;
+}
+#navd{
+	background-color: #8A0;
+	color: #ffffff;
+	border: none;
+	height:2em;
+	width: 8em;
+	padding-left: .75em;
+	padding-right: .75em;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	text-align: center;
+	font-size: 14pt;
+}
+#navd:hover{
+	background-color: #580;
+}
+#navr{ 
+	margin-top: 1.05em;
+	float: right;
+}
+#patron{
+	color:white;
+	background-image: url("media/patron.webp");
+	width: 281px;
+	height: 281px;
+}
+#patron:hover {opacity: 80%;}
+#sponsor{
+	color:white;
+	background-image: url("media/sponsor.webp");
+	width: 281px;
+	height: 281px;
+}
+#sponsor:hover {opacity: 80%;}
+#student{
+	color:white;
+	background-image: url("media/starry night.jpg");
+	width: 281px;
+	height: 281px;
+}
+#student:hover {opacity: 80%;}
+#wrapper{
+	background-color:#FFF;
+	margin: auto;
+	padding: 2.5em;
+	border: .25em;
+	border-color: #8A0;
+	border-style: solid;
+	box-shadow:4px 4px #580;
+	width: 85%;
+}
+
+
+/*classes*/
+
+.banner{height: 25vh;
+	margin:auto;
+	background-image: url("media/frontDrawn.png");
+	background-size: 100% 100%;
+}
+.bold{
+	font-weight: bold;
+}
+.content{height: 20vh;
+	padding-top: 2em;
+	background-color: #580;
+}
+.dropdown {
+	position: relative;
+	display: inline-block;
+  }	  
+.dropdown-content {
+	  display: none;
+	  position: absolute;
+	z-index: 1;
+  }
+.dropdown:hover .dropdown-content {display: block;}
+.grid{
+	display:grid;
+	grid-template-columns: auto auto auto;
+}
+.gridContent{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+	display: inline-grid;
+}
+.gridCart{
+	display:grid;
+	grid-template-columns: auto auto;
+}
+.gridCartContent{
+	border-top: 1px solid #000;
+	border-left: 1px solid #000;
+	padding:1em;
+	display:grid;
+	grid-template-columns: auto auto;
+}
+.home{height: 35vh;
+	padding-top: 2em;
+	padding-left: 10%;
+}
+.othercontent{height: 10vh;
+	padding-top: 1.5em;
+	padding-bottom:.5em;
+	background-color: #580;
+}
