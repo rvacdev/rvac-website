@@ -19,6 +19,7 @@ html {
 /* If a property has the same value for light and dark themes, no need to redeclare it here */
 html[data-theme="dark"] {
   --my-page-background-color: rgb(23, 23, 23);
+  --my-text-color: #e0e0e0;
 }
 theme-switch {
   width: 24px;
