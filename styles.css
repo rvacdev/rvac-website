@@ -1,6 +1,36 @@
 input,datalist,textarea,select{margin-bottom:1.5em}
 
-body{background-color:#DDD;
+@custom-media --motionOK (prefers-reduced-motion: no-preference);
+/* These are applied for the default (light) theme */
+/* (or when the toggle is auto, and the OS theme is light) */
+html {
+	--my-page-background-color: #e0e0e0;
+	--my-text-color: rgb(23, 23, 23);
+  }
+  
+  /* These are applied for the dark theme */
+  /* (or when the toggle is auto, and the OS theme is dark) */
+  /* If a property has the same value for light and dark themes, no need to redeclare it here */
+  html[data-theme="dark"] {
+	--my-page-background-color: rgb(23, 23, 23);
+  }
+  theme-switch {
+	width: 24px;
+	padding: 8px;
+	background: #8A0;
+	
+	/*
+	 * There is a special property called --theme-switch-icon-color
+	 * which you can set, to change the color of the icon (shapes) in the switch.
+	 * You can even make the color change with animation (for example, on mouse hover);
+	 * see https://gist.github.com/mahozad/a8114b6145cac721f7652aa7b0732cf6
+	 */
+	 --theme-switch-icon-color: #ececec;
+  }
+  
+body{
+	background: var(--my-page-background-color);
+    color: var(--my-text-color);
 	font-family: Arial, Calibri, sans-serif;
 	font-size:120%
 }
@@ -44,7 +74,13 @@ section{padding-left: 3em;
 td,th{padding:0.25em;
 	border: 1px solid #000;
 }
-
+body, nav, header, footer, html {
+	/* NOTE: The gradient background cannot be animated
+	 * See https://stackoverflow.com/a/63848864/8583692 */
+	transition:
+		background-color var(--theme-color-animation-duration) ease,
+		 color var(--theme-color-animation-duration) ease;
+  }
 /*ids*/
 
 #benefactor{
@@ -232,7 +268,8 @@ td,th{padding:0.25em;
 }
 #student:hover {opacity: 80%;}
 #wrapper{
-	background-color:#FFF;
+	background: var(--my-page-background-color);
+    color: var(--my-text-color);
 	margin: auto;
 	padding: 2.5em;
 	border: .25em;
