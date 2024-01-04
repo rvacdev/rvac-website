@@ -6,6 +6,7 @@ input,datalist,textarea,select{margin-bottom:1.5em}
 html {
 	--my-page-background-color: #e0e0e0;
 	--my-text-color: rgb(23, 23, 23);
+	--theme-color-animation-duration: 0.2s;
   }
   
   /* These are applied for the dark theme */
@@ -80,7 +81,7 @@ body, nav, header, footer, html {
 	transition:
 		background-color var(--theme-color-animation-duration) ease,
 		 color var(--theme-color-animation-duration) ease;
-  }
+}
 /*ids*/
 
 #benefactor{
@@ -277,6 +278,9 @@ body, nav, header, footer, html {
 	border-style: solid;
 	box-shadow:4px 4px #580;
 	width: 85%;
+	transition:
+		background-color var(--theme-color-animation-duration) ease,
+		color var(--theme-color-animation-duration) ease;
 }
 
 
