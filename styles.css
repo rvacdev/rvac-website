@@ -1,348 +1,391 @@
-input,datalist,textarea,select{margin-bottom:1.5em}
+input,
+datalist,
+textarea,
+select {
+  margin-bottom: 1.5em;
+}
 
 @custom-media --motionOK (prefers-reduced-motion: no-preference);
 /* These are applied for the default (light) theme */
 /* (or when the toggle is auto, and the OS theme is light) */
 html {
-	--my-page-background-color: #e0e0e0;
-	--my-text-color: rgb(23, 23, 23);
-	--theme-color-animation-duration: 0.2s;
-  }
-  
-  /* These are applied for the dark theme */
-  /* (or when the toggle is auto, and the OS theme is dark) */
-  /* If a property has the same value for light and dark themes, no need to redeclare it here */
-  html[data-theme="dark"] {
-	--my-page-background-color: rgb(23, 23, 23);
-  }
-  theme-switch {
-	width: 24px;
-	padding: 8px;
-	background: #8A0;
-	
-	/*
+  --my-page-background-color: #e0e0e0;
+  --my-text-color: rgb(23, 23, 23);
+  --theme-color-animation-duration: 0.2s;
+}
+
+/* These are applied for the dark theme */
+/* (or when the toggle is auto, and the OS theme is dark) */
+/* If a property has the same value for light and dark themes, no need to redeclare it here */
+html[data-theme="dark"] {
+  --my-page-background-color: rgb(23, 23, 23);
+}
+theme-switch {
+  width: 24px;
+  padding: 8px;
+  background: #8a0;
+
+  /*
 	 * There is a special property called --theme-switch-icon-color
 	 * which you can set, to change the color of the icon (shapes) in the switch.
 	 * You can even make the color change with animation (for example, on mouse hover);
 	 * see https://gist.github.com/mahozad/a8114b6145cac721f7652aa7b0732cf6
 	 */
-	 --theme-switch-icon-color: #ececec;
-  }
-  
-body{
-	background: var(--my-page-background-color);
-    color: var(--my-text-color);
-	font-family: Arial, Calibri, sans-serif;
-	font-size:120%
+  --theme-switch-icon-color: #ececec;
 }
-dt{font-weight:bold;
-		font-size:12pt;
-		margin-top:10px;
-		margin-bottom:4px;
+
+body {
+  background: var(--my-page-background-color);
+  color: var(--my-text-color);
+  font-family: Arial, Calibri, sans-serif;
+  font-size: 120%;
 }
-fieldset{
-		background-color:#DDD;
+dt {
+  font-weight: bold;
+  font-size: 12pt;
+  margin-top: 10px;
+  margin-bottom: 4px;
 }
-footer{text-align: center;
-		font-style: italic;
-		font-size: small;
-		margin-top: 15px;
+fieldset {
+  background-color: #ddd;
 }
-header{
-	font-family: Arial, Calibri, sans-serif;
-	color: #ffffff;
-	text-align: center;
+footer {
+  text-align: center;
+  font-style: italic;
+  font-size: small;
+  margin-top: 15px;
 }
-nav{text-align: left;
-	background-color: #8A0;
-	font-weight: bold;
-	margin: 0;
-	width: 100%;
-	height: auto;
+header {
+  font-family: Arial, Calibri, sans-serif;
+  color: #ffffff;
+  text-align: center;
 }
-nav ul{
-	margin: 0; 
-	padding: 0;
-	list-style-type: none;
+nav {
+  text-align: left;
+  background-color: #8a0;
+  font-weight: bold;
+  margin: 0;
+  width: 100%;
+  height: auto;
 }
-nav li{
-	margin: 0;
-	display: inline;
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
-section{padding-left: 3em;
-	padding-right: 3em;
+nav li {
+  margin: 0;
+  display: inline;
 }
-td,th{padding:0.25em;
-	border: 1px solid #000;
+section {
+  padding-left: 3em;
+  padding-right: 3em;
 }
-body, nav, header, footer, html {
-	/* NOTE: The gradient background cannot be animated
+td,
+th {
+  padding: 0.25em;
+  border: 1px solid #000;
+}
+body,
+nav,
+header,
+footer,
+html {
+  /* NOTE: The gradient background cannot be animated
 	 * See https://stackoverflow.com/a/63848864/8583692 */
-	transition:
-		background-color var(--theme-color-animation-duration) ease,
-		 color var(--theme-color-animation-duration) ease;
+  transition: 
+  	background-color var(--theme-color-animation-duration) ease,
+    color var(--theme-color-animation-duration) ease;
 }
 /*ids*/
 
-#benefactor{
-	color:white;
-	background-image: url("media/benefactor.webp");
-	width: 281px;
-	height: 281px;
+#benefactor {
+  color: white;
+  background-image: url("media/benefactor.webp");
+  width: 281px;
+  height: 281px;
 }
-#benefactor:hover {opacity: 80%;}
-#cart{
-	border-radius: 4px;
-	background-size: 100% 100%;
-	width: 3em;
-	height: 3em;
-	background-image: url("media/cart.png")
+#benefactor:hover {
+  opacity: 80%;
 }
-#corporate{
-	color:white;
-	background-image: url("media/corprate.webp");
-	width: 281px;
-	height: 281px;
+#cart {
+  border-radius: 4px;
+  background-size: 100% 100%;
+  width: 3em;
+  height: 3em;
+  background-image: url("media/cart.png");
 }
-#corporate:hover {opacity: 80%;}
-#donate{
-	color:white;
-	background-image: url("media/donate.webp");
-	width: 281px;
-	height: 281px;
-	display: block;
-  	margin-left: auto;
-  	margin-right: auto;
- 	margin-top: 1vh;
+#corporate {
+  color: white;
+  background-image: url("media/corprate.webp");
+  width: 281px;
+  height: 281px;
 }
-#donate:hover {opacity: 80%;}
-#endowment{
-	margin: auto;
-	height: 18vh;
-	width:18vw;
-	background-size: 100% 100%;
-	display: block;
-	background-image: url("media/NEA logo 1.webp");
+#corporate:hover {
+  opacity: 80%;
+}
+#donate {
+  color: white;
+  background-image: url("media/donate.webp");
+  width: 281px;
+  height: 281px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1vh;
+}
+#donate:hover {
+  opacity: 80%;
+}
+#endowment {
+  margin: auto;
+  height: 18vh;
+  width: 18vw;
+  background-size: 100% 100%;
+  display: block;
+  background-image: url("media/NEA logo 1.webp");
 }
 #events {
-	font-family: Arial, Calibri, sans-serif;
-	border-collapse: collapse;
-	width: 100%;
+  font-family: Arial, Calibri, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
-#events td, #events th {
-	border: 1.5px solid #000;
-	padding: 10px;
-}
-#events tr:hover {background-color: #86FC5D;}
+#events td,
 #events th {
-	padding-top: 5px;
-	padding-bottom: 5px;
-	text-align: left;
-	background-color: #580;
-	color: white;
+  border: 1.5px solid #000;
+  padding: 10px;
 }
-#face{
-	background-size: 100% 100%;
-	width: 3em;
-	height: 3em;
-	background-image: url("media/Facebook_Logo_Primary.png");
-	background-color: #FFF;
-	border:none;
-	border-radius: 50%;
+#events tr:hover {
+  background-color: #86fc5d;
 }
-#face:hover{
-	width: 3.1em;
-	height: 3.1em;
+#events th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: left;
+  background-color: #580;
+  color: white;
 }
-#family{
-	color:white;
-	background-image: url("media/family.webp");
-	width: 281px;
-	height: 281px;
+#face {
+  background-size: 100% 100%;
+  width: 3em;
+  height: 3em;
+  background-image: url("media/Facebook_Logo_Primary.png");
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
 }
-#family:hover {opacity: 80%;}
-#familyLarge{
-	color:white;
-	background-image: url("media/familyLarge.webp");
-	width: 281px;
-	height: 281px;
+#face:hover {
+  width: 3.1em;
+  height: 3.1em;
 }
-#familyLarge:hover {opacity: 80%;}
-#head1{
-	margin-top: 0em;
-	padding-bottom: 1.5em;
-	text-align: center;
+#family {
+  color: white;
+  background-image: url("media/family.webp");
+  width: 281px;
+  height: 281px;
 }
-#individual{
-	color:white;
-	background-image: url("media/individual.jpg");
-	width: 281px;
-	height: 281px;
+#family:hover {
+  opacity: 80%;
 }
-#individual:hover {opacity: 80%;}
-#inst{
-	background-size: 100% 100%;
-	width: 3em;
-	height: 3em;
-	background-image: url("media/Instagram_Glyph_Gradient.png");
-	background-color: #FFF;
-	border:none;
+#familyLarge {
+  color: white;
+  background-image: url("media/familyLarge.webp");
+  width: 281px;
+  height: 281px;
 }
-#inst:hover{
-	width: 3.1em;
-	height: 3.1em;
+#familyLarge:hover {
+  opacity: 80%;
 }
-#Jennifer{
-	width: 16%;
-	height: 100%;
-	background-image: url("media/Jennifer.JPG");
-	background-size: 100% 100%;
+#head1 {
+  margin-top: 0em;
+  padding-bottom: 1.5em;
+  text-align: center;
 }
-#logo{
-	border:none;
-	height: 5.5em;
-	width: 5.5em;
-	background-color: #8A0;
-	background-size: 100% 100%;
-	background-image: url("media/logo-main_no_background.webp");
+#individual {
+  color: white;
+  background-image: url("media/individual.jpg");
+  width: 281px;
+  height: 281px;
 }
-#monet{
-	color:white;
-	background-image: url("media/monet.webp");
-	width: 281px;
-	height: 281px;
+#individual:hover {
+  opacity: 80%;
 }
-#monet:hover {opacity: 80%;}
-#navb{
-	background-color: #8A0;
-	color: #ffffff;
-	border: none; 
-	padding-left: 1.5em;
-	padding-right: 1.5em;
-	padding-top: 1.25em;
-	padding-bottom: 1.75em;
-	text-align: center;
-	font-size: 15pt;
+#inst {
+  background-size: 100% 100%;
+  width: 3em;
+  height: 3em;
+  background-image: url("media/Instagram_Glyph_Gradient.png");
+  background-color: #fff;
+  border: none;
 }
-#navb:hover{
-	background-color: #580;
+#inst:hover {
+  width: 3.1em;
+  height: 3.1em;
 }
-#navd{
-	background-color: #8A0;
-	color: #ffffff;
-	border: none;
-	height:2em;
-	width: 8em;
-	padding-left: .75em;
-	padding-right: .75em;
-	padding-top: .5em;
-	padding-bottom: .5em;
-	text-align: center;
-	font-size: 14pt;
+#Jennifer {
+  width: 16%;
+  height: 100%;
+  background-image: url("media/Jennifer.JPG");
+  background-size: 100% 100%;
 }
-#navd:hover{
-	background-color: #580;
+#logo {
+  border: none;
+  height: 5.5em;
+  width: 5.5em;
+  background-color: #8a0;
+  background-size: 100% 100%;
+  background-image: url("media/logo-main_no_background.webp");
 }
-#navr{ 
-	margin-top: 1.05em;
-	float: right;
+#monet {
+  color: white;
+  background-image: url("media/monet.webp");
+  width: 281px;
+  height: 281px;
 }
-#patron{
-	color:white;
-	background-image: url("media/patron.webp");
-	width: 281px;
-	height: 281px;
+#monet:hover {
+  opacity: 80%;
 }
-#patron:hover {opacity: 80%;}
-#sponsor{
-	color:white;
-	background-image: url("media/sponsor.webp");
-	width: 281px;
-	height: 281px;
+#navb {
+  background-color: #8a0;
+  color: #ffffff;
+  border: none;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 1.25em;
+  padding-bottom: 1.75em;
+  text-align: center;
+  font-size: 15pt;
 }
-#sponsor:hover {opacity: 80%;}
-#student{
-	color:white;
-	background-image: url("media/starry night.jpg");
-	width: 281px;
-	height: 281px;
+#navb:hover {
+  background-color: #580;
 }
-#student:hover {opacity: 80%;}
-#wrapper{
-	background: var(--my-page-background-color);
-    color: var(--my-text-color);
-	margin: auto;
-	padding: 2.5em;
-	border: .25em;
-	border-color: #8A0;
-	border-style: solid;
-	box-shadow:4px 4px #580;
-	width: 85%;
-	transition:
-		background-color var(--theme-color-animation-duration) ease,
-		color var(--theme-color-animation-duration) ease;
+#navd {
+  background-color: #8a0;
+  color: #ffffff;
+  border: none;
+  height: 2em;
+  width: 8em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  text-align: center;
+  font-size: 14pt;
 }
-
+#navd:hover {
+  background-color: #580;
+}
+#navr {
+  margin-top: 1.05em;
+  float: right;
+}
+#patron {
+  color: white;
+  background-image: url("media/patron.webp");
+  width: 281px;
+  height: 281px;
+}
+#patron:hover {
+  opacity: 80%;
+}
+#sponsor {
+  color: white;
+  background-image: url("media/sponsor.webp");
+  width: 281px;
+  height: 281px;
+}
+#sponsor:hover {
+  opacity: 80%;
+}
+#student {
+  color: white;
+  background-image: url("media/starry night.jpg");
+  width: 281px;
+  height: 281px;
+}
+#student:hover {
+  opacity: 80%;
+}
+#wrapper {
+  background: var(--my-page-background-color);
+  color: var(--my-text-color);
+  margin: auto;
+  padding: 2.5em;
+  border: 0.25em;
+  border-color: #8a0;
+  border-style: solid;
+  box-shadow: 4px 4px #580;
+  width: 85%;
+  transition: 
+  	background-color var(--theme-color-animation-duration) ease,
+    color var(--theme-color-animation-duration) ease;
+}
 
 /*classes*/
 
-.banner{height: 25vh;
-	margin:auto;
-	background-image: url("media/frontDrawn.png");
-	background-size: 100% 100%;
+.banner {
+  height: 25vh;
+  margin: auto;
+  background-image: url("media/frontDrawn.png");
+  background-size: 100% 100%;
 }
-.bold{
-	font-weight: bold;
+.bold {
+  font-weight: bold;
 }
-.content{height: 20vh;
-	padding-top: 2em;
-	background-color: #580;
+.content {
+  height: 20vh;
+  padding-top: 2em;
+  background-color: #580;
 }
 .dropdown {
-	position: relative;
-	display: inline-block;
-  }	  
+  position: relative;
+  display: inline-block;
+}
 .dropdown-content {
-	  display: none;
-	  position: absolute;
-	z-index: 1;
-  }
-.dropdown:hover .dropdown-content {display: block;}
-.grid{
-	display:grid;
-	grid-template-columns: auto auto auto;
+  display: none;
+  position: absolute;
+  z-index: 1;
 }
-.gridContent{
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 1vh;
-	margin-bottom: 1vh;
-	display: inline-grid;
+.dropdown:hover .dropdown-content {
+  display: block;
 }
-.gridClassContent{
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 1vh;
-	margin-bottom: 1vh;
-	display: inline-grid;
+.grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
 }
-.gridCart{
-	display:grid;
-	grid-template-columns: auto auto;
+.gridContent {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  display: inline-grid;
 }
-.gridCartContent{
-	border-top: 1px solid #000;
-	border-left: 1px solid #000;
-	padding:1em;
-	display:grid;
-	grid-template-columns: auto auto;
+.gridClassContent {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  display: inline-grid;
 }
-.home{height: 35vh;
-	padding-top: 2em;
-	padding-left: 10%;
+.gridCart {
+  display: grid;
+  grid-template-columns: auto auto;
 }
-.othercontent{height: 10vh;
-	padding-top: 1.5em;
-	padding-bottom:.5em;
-	background-color: #580;
+.gridCartContent {
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.home {
+  height: 35vh;
+  padding-top: 2em;
+  padding-left: 10%;
+}
+.othercontent {
+  height: 10vh;
+  padding-top: 1.5em;
+  padding-bottom: 0.5em;
+  background-color: #580;
 }
