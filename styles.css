@@ -278,6 +278,13 @@ td,th{padding:0.25em;
 	margin-bottom: 1vh;
 	display: inline-grid;
 }
+.gridClassContent{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+	display: inline-grid;
+}
 .gridCart{
 	display:grid;
 	grid-template-columns: auto auto;
