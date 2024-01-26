@@ -98,6 +98,9 @@ body, nav, header, footer, html {
 	height: 3em;
 	background-image: url("media/cart.png")
 }
+#change{size:1em;
+	
+}
 #corporate{
 	color:white;
 	background-image: url("media/corprate.webp");
@@ -268,6 +271,7 @@ body, nav, header, footer, html {
 	height: 281px;
 }
 #student:hover {opacity: 80%;}
+#toChange{size: 1em;}
 #wrapper{
 	background: var(--my-page-background-color);
     color: var(--my-text-color);
