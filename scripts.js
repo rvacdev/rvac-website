@@ -6,8 +6,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Sample product data
     const products = [
-        { id: 1, name: 'Product 1', price: 20.00 },
-        { id: 2, name: 'Product 2', price: 25.00 }
+        { id: "student", name: 'Sudent Membership', price: 25.00 },
+        { id: "individual", name: 'Individual Membership', price: 45.00 },
+        { id: "family", name: 'Family Membership', price: 65.00 },
+        { id: "familyLarge", name: 'Family Degas Art Lovers', price: 100.00 },
+        { id: "corporate", name: 'Matisse Corporate', price: 250.00 },
+        { id: "benefactor", name: 'Picasso Benefactor', price: 500.00 },
+        { id: "sponsor", name: 'Rembrant Sponsor', price: 1000.00 },
+        { id: "patron", name: 'Da Vinci Patron', price: 2500.00 },
+        { id: "monet", name: 'Monet Patron', price: 5000.00 },
+        { id: 2, name: 'Product 2', price: 25.00 },
+        { id: 2, name: 'Product 2', price: 25.00 },
+        { id: 2, name: 'Product 2', price: 25.00 },
+        { id: 2, name: 'Product 2', price: 25.00 },
+        { id: 2, name: 'Product 2', price: 25.00 },
+        { id: 2, name: 'Product 2', price: 25.00 },
+        { id: 2, name: 'Product 2', price: 25.00 },
+        { id: 2, name: 'Product 2', price: 25.00 },
+        { id: '1', name: 'Product 1', price: 20.00 },
+
         // Add more product objects as needed
     ];
 
@@ -17,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to add a product to the cart
     function addToCart(productId) {
-        const product = products.find(item => item.id === parseInt(productId));
+        const product = products.find(item => item.id === (productId));
 
         if (product) {
             cart.push(product);
@@ -75,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     // Function to remove an item from the cart
     function removeFromCart(productId) {
-        const index = cart.findIndex(item => item.id === parseInt(productId));
+        const index = cart.findIndex(item => item.id === (productId));
 
         if (index !== -1) {
             total -= cart[index].price;
