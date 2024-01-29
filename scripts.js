@@ -21,9 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (product) {
             cart.push(product);
-            if (Array.isArray(cart) && cart.length){
-                document.getElementById('empty').textContent=' ';
-            }
             total += product.price;
     
             updateCart();
@@ -38,6 +35,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Clear existing cart items
         cartItemsElement.textContent = '';
+
+        if (Array.isArray(cart) && cart.length){
+            document.getElementById('empty').textContent=' ';
+        }
 
         // Populate cart items
         cart.forEach(item => {
@@ -88,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
     
+    loadCartFromLocalStorage();
 
     document.addEventListener('click', function (event) {
         if (event.target.classList.contains('itemButton')) {
@@ -97,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    loadCartFromLocalStorage();
+    
 
 });
 
