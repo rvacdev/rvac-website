@@ -278,7 +278,7 @@ html {
   background-color: #8a0;
   color: #ffffff;
   border: none;
-  height: 2em;
+  height: auto;
   width: 8em;
   padding-left: 0.75em;
   padding-right: 0.75em;
