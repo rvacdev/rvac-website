@@ -1,12 +1,10 @@
-
-
 document.addEventListener('DOMContentLoaded', function () {
     // Add click event listener to the common parent container
     
 
     // Sample product data
     const products = [
-        { id: "student", name: 'Sudent Membership', price: 25.00 },
+        { id: "student", name: 'Sudent/Senior Membership', price: 25.00 },
         { id: "individual", name: 'Individual Membership', price: 45.00 },
         { id: "family", name: 'Family Membership', price: 65.00 },
         { id: "familyLarge", name: 'Family Degas Art Lovers', price: 100.00 },
@@ -49,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateCart() {
         const cartItemsElement = document.getElementById('cart-items');
         const cartTotalElement = document.getElementById('cart-total');
+        const cartCounterElement = document.getElementById('cartText');
 
         // Clear existing cart items
         cartItemsElement.textContent = '';
@@ -72,15 +71,21 @@ document.addEventListener('DOMContentLoaded', function () {
             cartItemsElement.appendChild(li);
         });
 
-        // Update total
+        // Update total and counter
+        if(cart.length>0){
+            cartCounterElement.textContent=String(cart.length);
+        }
+        else{
+            cartCounterElement.textContent='';
+        }
         cartTotalElement.textContent = `${total.toFixed(2)}`;
     }
     function saveCartToLocalStorage() {
-        localStorage.setItem('cart', JSON.stringify(cart));
+        sessionStorage.setItem('cartText', JSON.stringify(cart));
     }
     // Function to load the cart from localStorage
     function loadCartFromLocalStorage() {
-        const storedCart = localStorage.getItem('cart');
+        const storedCart = sessionStorage.getItem('cartText');
         cart = storedCart ? JSON.parse(storedCart) : [];
         total = calculateTotal();
         updateCart();
@@ -115,16 +120,4 @@ document.addEventListener('DOMContentLoaded', function () {
             addToCart(productId);
         }
     });
-
-    
-
 });
-
-
-
-
-    
-
-
-
-

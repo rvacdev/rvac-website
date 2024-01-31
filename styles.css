@@ -117,13 +117,19 @@ html {
 #cart {
   border-radius: 4px;
   background-size: 100% 100%;
-  width: 3em;
-  height: 3em;
+  width: 4em;
+  height: 4em;
+  padding: 1.25em;
   background-image: url("media/cart.png");
 }
-#change{size:1em;
-	
+#cartText{
+  margin: 0px;
+  padding: 0px;
+  opacity: 100%;
+  border-radius: 6px;
+  background-color: #8a0;
 }
+#change{size:1em;}
 #corporate {
   color: white;
   background-image: url("media/corprate.webp");
@@ -268,7 +274,7 @@ html {
 #navb:hover {
   background-color: #580;
 }
-#navd {
+#navDropdown {
   background-color: #8a0;
   color: #ffffff;
   border: none;
@@ -281,10 +287,10 @@ html {
   text-align: center;
   font-size: 14pt;
 }
-#navd:hover {
+#navDropdown:hover {
   background-color: #580;
 }
-#navr {
+#navRight {
   margin-top: 1.05em;
   float: right;
 }
@@ -344,6 +350,11 @@ html {
   padding-top: 2em;
   background-color: #580;
 }
+.cartDropdownContent{
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
 .dropdown {
   position: relative;
   display: inline-block;
@@ -352,6 +363,12 @@ html {
   display: none;
   position: absolute;
   z-index: 1;
+}
+.dropdown:hover .cartDropdownContent {
+  display: block;
+  width: 8em;
+  right: 0;
+  background-color: #8a0;
 }
 .dropdown:hover .dropdown-content {
   display: block;
