@@ -294,6 +294,9 @@ html {
   margin-top: 1.05em;
   float: right;
 }
+#noBullet{
+  list-style-type: none;
+}
 #patron {
   color: white;
   background-image: url("media/patron.webp");

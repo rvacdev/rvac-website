@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 2, name: 'Product 2', price: 25.00 },
         { id: 2, name: 'Product 2', price: 25.00 },
         { id: 2, name: 'Product 2', price: 25.00 },
-        { id: '1', name: 'Product 1', price: 20.00 },
+        { id: '1', name: 'Donation', price: 0.00 },
 
         // Add more product objects as needed
     ];
@@ -34,7 +34,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function addToCart(productId) {
         const product = products.find(item => item.id === (productId));
 
-        if (product) {
+        if (product.id==='1'){
+            
+        } 
+        if(product){
             cart.push(product);
             total += product.price;
     
