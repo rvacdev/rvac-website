@@ -32,12 +32,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to add a product to the cart
     function addToCart(productId) {
-        const product = products.find(item => item.id === (productId));
+        var product = products.find(item => item.id === (productId));
 
         if (product.id==='1'){
-            
+            product.price=parseFloat(document.getElementById('donationInput').value);
+            if (product.price==NaN){
+                return 0;
+            }
         } 
-        if(product){
+        if(product.price>0){
             cart.push(product);
             total += product.price;
     
