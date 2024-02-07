@@ -67,35 +67,15 @@
         <p id="empty">Your cart is Empty.</p>
         <ul id="cart-items"></ul>
 
-        <form>
-            <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname" required><br>
+        <div id="paypal-button-container"></div>
 
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname" required><br>
+        <p id="result-message"></p>
 
-            <label for="email">Email:</label><br>
-            <input type="email" id="mail" name="mail" required><br>
+        <!-- Replace the "test" client-id value with your client-id -->
 
-            <label for="phone">Enter your phone number:</label><br>
-            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required><br>
+        <script src="https://www.paypal.com/sdk/js?client-id=test&components=buttons&enable-funding=paylater,venmo,card" data-sdk-integration-source="integrationbuilder_sc"></script>
 
-            <label for="cardnumber">Card Number:</label><br>
-            <input type="text" id="cardnumber" name="cardnumber" required><br>
-
-            <label for="edate">Expiration Date:</label><br>
-            <input type="text" id="month" name="month" required>
-            <input type="text" id="year" name="year" required><br>
-
-            <label for="seccode">Security Code:</label><br>
-            <input type="text" id="seccode" name="seccode" required><br>
-            
-            <label for="zip">Billing Zip Code:</label><br>
-            <input type="text" id="zip" name="zip" required><br>
-
-
-            <input type="submit">
-        </form>
+        <script src="app.js"></script>
 
 	<footer>
 		© 1981-2023 RIVER VALLEY ARTS CENTER.
@@ -103,7 +83,7 @@
 	
 		We are thankful to the National Endowment for the Arts for their support of our programs.
 	</footer>
-	<script src="scripts.js"></script>
+
 </main>
 </div>
 </body>
