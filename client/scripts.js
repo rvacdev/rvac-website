@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Sample product data
     const products = [
+
+        //START OF PRODUCT LIST
         { id: "student", name: 'Sudent/Senior Membership', price: 25.00 },
         { id: "individual", name: 'Individual Membership', price: 45.00 },
         { id: "family", name: 'Family Membership', price: 65.00 },
@@ -23,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 2, name: 'Product 2', price: 25.00 },
         { id: '1', name: 'Donation', price: 0.00 },
 
-        // Add more product objects as needed
+        // END OF PRODUCT LIST
     ];
 
     // Initialize cart and total
@@ -65,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Populate cart items
         cart.forEach(item => {
             li = document.createElement('li');
+            li.setAttribute("id", item.id, "price", item.price);
             li.textContent = `${item.name} - ${item.price.toFixed(2)}`;
             cartItemsElement.appendChild(li);
 
