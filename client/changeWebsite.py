@@ -4,41 +4,79 @@ import os
 import re
 
 #change url locations as needed
-CLASS_PATH=os.path.abspath('C:\\Users\\pjf08\\Documents\\college classes\\Fall2023\\Capstone\\RVAC website Git\\rvac-overhaul\\client\\class.html')
-SCRIPT_PATH=os.path.abspath('scripts.js')
+CLASS_PATH=os.path.relpath('client\\class.html')
+SCRIPT_PATH=os.path.relpath('client\\scripts.js')
 toFind=''
 newClassName=''
 newClassStartTime=[]
 newClassPrice=0.00
 tempCounter=0
-console='add'
+console='remove'
 
-def findInFile(idToFind,widget):
-    html=open(CLASS_PATH)
-    soup=bs(html,'html.parser')
+def findInFile(idToFind,widget,soup):
     location=soup.find(widget, {"id":idToFind})
-    print(location)
     return location
 
-def replaceTableEnd():
-    pass
 
-def addAclass(newClassName,newClassDateTime,newClassPrice):
-    with open(CLASS_PATH, "w", encoding = 'utf-8') as file:    
-        tableEnd=(findInFile('endOfTable','tr'))
-        newEntry=(bs(('<tr id=' + newClassName +'><td>' + newClassName+'</td><td>' + str(newClassDateTime)+'</td><td> $' + str(newClassPrice)+'</td><td> <button id=' + newClassName+' class = "itemButton">Reseve Now</button></td></tr>'),'html.parser'))
-        print(tableEnd)
-        print(newEntry)
-        file.write(str(tableEnd.insert_before(newEntry)))
+def makeTableEntry(tableText,soup):
+    tdTag=soup.new_tag('td')
+    tdTag.string=str(tableText)
+    return tdTag
 
-def removeAclass(console):
-    toRemove=findInFile('deleteThis','tr')
+def addButton(buttonID,soup):
+    tdTag=soup.new_tag('td')
+    button=soup.new_tag('button',id=toAddList[0],**{'class':"itemButton"})
+    button.string=("Reseve Now")
+    tdTag.append(button)
+    return tdTag
+
+def addToJavaScript(toAddList):
+    with open(SCRIPT_PATH,'r') as reader:
+        lines=reader.readlines()
+    with open(SCRIPT_PATH,'w') as writer:
+        for line in lines:
+            line=line.replace('// END OF PRODUCT LIST','{ id: \''+toAddList[0]+'\', name: \''+toAddList[0]+'\', price: \''+str(toAddList[2][1])+'\' },\n// END OF PRODUCT LIST')
+            writer.write(str(line))
+
+def addAclass(toAddList):  
+    html=open(CLASS_PATH)
+    soup=bs(html,'html.parser')
+    tableEnd=(findInFile('endOfTable','tr',soup))
+    newTable=soup.new_tag('tr',id=toAddList[0])
+    for item in toAddList:
+        newEntry=makeTableEntry(item,soup)
+        newTable.append(newEntry)
+    newTable.append(addButton(toAddList[0],soup))
+    tableEnd.insert_before(newTable)
+    with open(CLASS_PATH, "w", encoding='utf-8') as file:
+        file.write(str(soup))
+    html.close()
+    addToJavaScript(toAddList)
+
+def removeAscript(toRemove):
+    with open(SCRIPT_PATH,'r') as reader:
+        lines=reader.readlines()
+    with open(SCRIPT_PATH,'w') as writer:
+        for line in lines:
+            if(line.strip('\n\t')!='<tr id=\"'+toRemove+'\">'):
+                writer.write(str(line))
+
+def removeAclass(toRemove):
+    with open(CLASS_PATH,'r') as reader:
+        lines=reader.readlines()
+    with open(CLASS_PATH,'w') as writer:
+        x=0
+        for line in lines:
+            if(line.strip('\n\t')!='<tr id=\"'+toRemove+'\">'and (0<x or x<6)):
+                writer.write(str(line))
+            else:
+                x=x+1
 
 
-###print('Do you want to add or remove a class')
-###console=input()
+#print('Do you want to add or remove a class')
+#console=input()
 if(console=='add'):
-    '''print('What is the name of this class?')
+    print('What is the name of this class?')
     newClassName=input()
     print('When will this class start? YYYY/MM/DD HH:MM')
     format = "%Y/%m/%d %H:%M" 
@@ -48,14 +86,13 @@ if(console=='add'):
     newClassDateTime=newClassStartTime+timedelta(hours=lenght)
     print('What is the price of this class?')
     newClassPrice=float(input())
-    '''
-    date_string_2 = "2021/09/01 14:30:00"
-    format_2 = "%Y/%m/%d %H:%M:%S"
-    date_2 = datetime.strptime(date_string_2, format_2)
-    addAclass('newClassName',date_2,50.00)
+    toAddList=[newClassName,newClassDateTime,['$',50.00]]
+    addAclass(toAddList)
 
 elif(console=='remove'):
-    removeAclass(console)
+    print('what class do you want to remove')
+    toRemove=input()
+    removeAclass(toRemove)
 
 else:
     print('error')
