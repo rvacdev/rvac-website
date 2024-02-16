@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup as bs
 from datetime import datetime, timedelta
 import os
-import re
 
 #change url locations as needed
 CLASS_PATH=os.path.relpath('client\\class.html')
@@ -35,7 +34,7 @@ def addToJavaScript(toAddList):
         lines=reader.readlines()
     with open(SCRIPT_PATH,'w') as writer:
         for line in lines:
-            line=line.replace('// END OF PRODUCT LIST','{ id: \''+toAddList[0]+'\', name: \''+toAddList[0]+'\', price: \''+str(toAddList[2][1])+'\' },\n// END OF PRODUCT LIST')
+            line=line.replace('// END OF PRODUCT LIST','{ id: \''+toAddList[0]+'\', name: \''+toAddList[0]+'\', price: \''+str(toAddList[2][1])+'\', price: \''+str(toAddList[1])+'\' },\n// END OF PRODUCT LIST')
             writer.write(str(line))
 
 def addAclass(toAddList):  
@@ -58,7 +57,9 @@ def removeAscript(toRemove):
         lines=reader.readlines()
     with open(SCRIPT_PATH,'w') as writer:
         for line in lines:
-            if(line.strip('\n\t')!='<tr id=\"'+toRemove+'\">'):
+            if(toRemove in line):
+                pass
+            else:
                 writer.write(str(line))
 
 def removeAclass(toRemove):
@@ -67,11 +68,11 @@ def removeAclass(toRemove):
     with open(CLASS_PATH,'w') as writer:
         x=0
         for line in lines:
-            if(line.strip('\n\t')!='<tr id=\"'+toRemove+'\">'and (0<x or x<6)):
+            if(toRemove not in line and (0<x or x<6)):
                 writer.write(str(line))
             else:
                 x=x+1
-
+    removeAscript(toRemove)
 
 #print('Do you want to add or remove a class')
 #console=input()
