@@ -73,18 +73,18 @@ window.paypal
             orderData?.purchase_units?.[0]?.payments?.captures?.[0] ||
             orderData?.purchase_units?.[0]?.payments?.authorizations?.[0];
           resultMessage(
-            `Transaction ${transaction.status}: ${transaction.id}<br><br>See console for all available details`,
+            `Transaction ${transaction.status}: ${transaction.id}<br><br>See console for all available details`
           );
           console.log(
             "Capture result",
             orderData,
-            JSON.stringify(orderData, null, 2),
+            JSON.stringify(orderData, null, 2)
           );
         }
       } catch (error) {
         console.error(error);
         resultMessage(
-          `Sorry, your transaction could not be processed...<br><br>${error}`,
+          `Sorry, your transaction could not be processed...<br><br>${error}`
         );
       }
     },
