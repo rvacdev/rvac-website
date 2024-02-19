@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: "patron", name: 'Da Vinci Patron', price: 2500.00 },
         { id: "monet", name: 'Monet Patron', price: 5000.00 },
         { id: "coolArtClass", name: 'Cool Art Class', price: 50.00 },
-        { id: "deleteThis", name: 'deleteThis', price: 25.00 },
         { id: '1', name: 'Donation', price: 0.00 },
         // END OF PRODUCT LIST
     ];

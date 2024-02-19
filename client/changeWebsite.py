@@ -32,10 +32,12 @@ def addButton(buttonID,soup):
 def addToJavaScript(toAddList):
     with open(SCRIPT_PATH,'r') as reader:
         lines=reader.readlines()
+        reader.close()
     with open(SCRIPT_PATH,'w') as writer:
         for line in lines:
             line=line.replace('// END OF PRODUCT LIST','{ id: \''+toAddList[0]+'\', name: \''+toAddList[0]+'\', price: \''+str(toAddList[2][1])+'\', price: \''+str(toAddList[1])+'\' },\n// END OF PRODUCT LIST')
             writer.write(str(line))
+        writer.close()
 
 def addAclass(toAddList):  
     html=open(CLASS_PATH)
@@ -55,23 +57,27 @@ def addAclass(toAddList):
 def removeAscript(toRemove):
     with open(SCRIPT_PATH,'r') as reader:
         lines=reader.readlines()
+        reader.close()
     with open(SCRIPT_PATH,'w') as writer:
         for line in lines:
             if(toRemove in line):
                 pass
             else:
                 writer.write(str(line))
+        writer.close()
 
 def removeAclass(toRemove):
     with open(CLASS_PATH,'r') as reader:
         lines=reader.readlines()
+        reader.close()
     with open(CLASS_PATH,'w') as writer:
         x=0
         for line in lines:
-            if(toRemove not in line and (0<x or x<6)):
+            if(toRemove not in line and not(0<x<6)):
                 writer.write(str(line))
             else:
                 x=x+1
+        writer.close()
     removeAscript(toRemove)
 
 #print('Do you want to add or remove a class')
@@ -79,21 +85,21 @@ def removeAclass(toRemove):
 if(console=='add'):
     print('What is the name of this class?')
     newClassName=input()
-    print('When will this class start? YYYY/MM/DD HH:MM')
-    format = "%Y/%m/%d %H:%M" 
-    newClassStartTime=datetime.strptime(input(),format)
-    print('How many hours will this class last?')
+    print('When will this class start? YYYY/MM/DD HH:MM') 
+    newClassStartTime=input()
+    print('What time will this class end? HH:MM')
     lenght=float(input())
-    newClassDateTime=newClassStartTime+timedelta(hours=lenght)
+    newClassEndTime=input()
+    newClassTime=newClassStartTime+' - '+newClassEndTime
     print('What is the price of this class?')
     newClassPrice=float(input())
-    toAddList=[newClassName,newClassDateTime,['$',50.00]]
+    toAddList=[newClassName,newClassTime,['$',50.00]]
     addAclass(toAddList)
 
 elif(console=='remove'):
-    print('what class do you want to remove')
-    toRemove=input()
-    removeAclass(toRemove)
+    #print('what class do you want to remove')
+    #toRemove=input()
+    removeAclass('deleteThis')
 
 else:
     print('error')
