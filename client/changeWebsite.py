@@ -1,5 +1,4 @@
-from bs4 import BeautifulSoup as bs
-from datetime import datetime, timedelta
+import PySimpleGUI as sg
 import os
 
 #change url locations as needed
@@ -40,18 +39,24 @@ def addToJavaScript(toAddList):
         writer.close()
 
 def addAclass(toAddList):  
-    html=open(CLASS_PATH)
-    soup=bs(html,'html.parser')
-    tableEnd=(findInFile('endOfTable','tr',soup))
-    newTable=soup.new_tag('tr',id=toAddList[0])
-    for item in toAddList:
-        newEntry=makeTableEntry(item,soup)
-        newTable.append(newEntry)
-    newTable.append(addButton(toAddList[0],soup))
-    tableEnd.insert_before(newTable)
-    with open(CLASS_PATH, "w", encoding='utf-8') as file:
-        file.write(str(soup))
-    html.close()
+    with open(CLASS_PATH,'r') as reader:
+        lines=reader.readlines()
+        reader.close()
+    with open(CLASS_PATH,'w') as writer:
+        for line in lines:
+            if('<tr id="endOfTable"></tr>'in line):
+                writer.write(
+                    '\t\t\t\t\t<tr id=\"'+ toAddList[0] +'\">\n'+
+                    '\t\t\t\t\t\t <td>'+ toAddList[0] +'</td>\n'+
+                    '\t\t\t\t\t\t <td>'+ toAddList[1] +'</td>\n'+
+                    '\t\t\t\t\t\t <td>$'+ toAddList[2] +'</td>\n'+
+                    '\t\t\t\t\t\t <td><button id=\"'+ toAddList[0] +'\" class = \"itemButton\">Reseve Now</button></td>\n'+
+                    '\t\t\t\t\t</tr>\n'+
+                    '\t\t\t\t\t<tr id="endOfTable"></tr>\n'
+                )
+            else:
+                writer.write(str(line))
+        writer.close()
     addToJavaScript(toAddList)
 
 def removeAscript(toRemove):
@@ -80,26 +85,69 @@ def removeAclass(toRemove):
         writer.close()
     removeAscript(toRemove)
 
-#print('Do you want to add or remove a class')
-#console=input()
-if(console=='add'):
-    print('What is the name of this class?')
-    newClassName=input()
-    print('When will this class start? YYYY/MM/DD HH:MM') 
-    newClassStartTime=input()
-    print('What time will this class end? HH:MM')
-    lenght=float(input())
-    newClassEndTime=input()
-    newClassTime=newClassStartTime+' - '+newClassEndTime
-    print('What is the price of this class?')
-    newClassPrice=float(input())
-    toAddList=[newClassName,newClassTime,['$',50.00]]
+
+layout = [[sg.Text('Would you like to add or remove a class')],
+          [sg.Button('Add'), sg.Button('Remove')]]
+
+# Create the Window
+window = sg.Window('Add or Remove class', layout)
+
+# Create an event loop
+while True:
+    event, values = window.read()
+    # End program if user closes window or
+    # presses the Cancel button
+    if event == "Add" or event == "Remove" or event == sg.WIN_CLOSED:
+        break
+
+console=event
+
+window.close()
+
+if(console=='Add'):
+    addLayout = [[sg.Text("What is the name of this class?"), sg.InputText()],
+            [sg.Text("When will this class be? ex. Mondays at 1:00 PM - 3:00 PM")], 
+            [sg.Text("Or December 8th 2024 11:00 AM - 1:30 PM"),sg.InputText()],
+            [sg.Text("What is the price of this class?  $"), sg.InputText()],
+            [sg.Button('Ok'), sg.Button('Cancel')]]
+
+    # Create the window
+    addWindow = sg.Window("Add a class", addLayout)
+
+    # Create an event loop
+    while True:
+        event, values = addWindow.read()
+        # End program if user closes window or
+        # presses the Cancel button
+        if event == "Cancel" or event == sg.WIN_CLOSED:
+            break
+        
+        if event=='Ok':
+            toAddList=values
+            break
+    
     addAclass(toAddList)
+    addWindow.close()
 
-elif(console=='remove'):
-    #print('what class do you want to remove')
-    #toRemove=input()
-    removeAclass('deleteThis')
+elif(console=='Remove'):
+    removeLayout = [[sg.Text("What is the name of the class you wish to remove?"), sg.InputText()],
+            [sg.Button('Ok'), sg.Button('Cancel')]]
 
-else:
-    print('error')
+    # Create the window
+    removeWindow = sg.Window("Remove a class", removeLayout)
+
+    # Create an event loop
+    while True:
+        event, values = removeWindow.read()
+        # End program if user closes window or
+        # presses the Cancel button
+        if event == "Cancel" or event == sg.WIN_CLOSED:
+            break
+        
+        if event=='Ok':
+            toRemove='<tr id=\"'+values[0]+'\">'
+            break
+    
+    removeAclass(toRemove)
+    removeWindow.close()
+    
