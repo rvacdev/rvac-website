@@ -4,12 +4,7 @@ import os
 #change url locations as needed
 CLASS_PATH=os.path.relpath('client\\class.html')
 SCRIPT_PATH=os.path.relpath('client\\scripts.js')
-toFind=''
-newClassName=''
-newClassStartTime=[]
-newClassPrice=0.00
-tempCounter=0
-console='remove'
+
 
 def findInFile(idToFind,widget,soup):
     location=soup.find(widget, {"id":idToFind})
@@ -44,7 +39,7 @@ def addAclass(toAddList):
         reader.close()
     with open(CLASS_PATH,'w') as writer:
         for line in lines:
-            if('<tr id="endOfTable"></tr>'in line):
+            if('<tr id="endOfMerchTable"></tr>'in line):
                 writer.write(
                     '\t\t\t\t\t<tr id=\"'+ toAddList[0] +'\">\n'+
                     '\t\t\t\t\t\t <td>'+ toAddList[0] +'</td>\n'+
@@ -52,7 +47,7 @@ def addAclass(toAddList):
                     '\t\t\t\t\t\t <td>$'+ toAddList[2] +'</td>\n'+
                     '\t\t\t\t\t\t <td><button id=\"'+ toAddList[0] +'\" class = \"itemButton\">Reseve Now</button></td>\n'+
                     '\t\t\t\t\t</tr>\n'+
-                    '\t\t\t\t\t<tr id="endOfTable"></tr>\n'
+                    '\t\t\t\t\t<tr id="endOfMerchTable"></tr>\n'
                 )
             else:
                 writer.write(str(line))
@@ -86,11 +81,11 @@ def removeAclass(toRemove):
     removeAscript(toRemove)
 
 
-layout = [[sg.Text('Would you like to add or remove a class')],
+layout = [[sg.Text('Would you like to add or remove a Merch')],
           [sg.Button('Add'), sg.Button('Remove')]]
 
 # Create the Window
-window = sg.Window('Add or Remove class', layout)
+window = sg.Window('Add or Remove Merch', layout)
 
 # Create an event loop
 while True:
@@ -105,14 +100,13 @@ console=event
 window.close()
 
 if(console=='Add'):
-    addLayout = [[sg.Text("What is the name of this class?"), sg.InputText()],
-            [sg.Text("When will this class be? ex. Mondays at 1:00 PM - 3:00 PM")], 
-            [sg.Text("Or December 8th 2024 11:00 AM - 1:30 PM"),sg.InputText()],
-            [sg.Text("What is the price of this class?  $"), sg.InputText()],
+    addLayout = [[sg.Text("What is the name of this Merch?"), sg.InputText()],
+            [sg.Text("What is the price of this Merch?  $"), sg.InputText()],
+            [sg.Text("What is the name of the file for the image, dont forget file extensions?"), sg.InputText()],
             [sg.Button('Ok'), sg.Button('Cancel')]]
 
     # Create the window
-    addWindow = sg.Window("Add a class", addLayout)
+    addWindow = sg.Window("Add Merch", addLayout)
 
     # Create an event loop
     while True:
@@ -130,11 +124,11 @@ if(console=='Add'):
     addWindow.close()
 
 elif(console=='Remove'):
-    removeLayout = [[sg.Text("What is the name of the class you wish to remove?"), sg.InputText()],
+    removeLayout = [[sg.Text("What is the name of the Merch you wish to remove?"), sg.InputText()],
             [sg.Button('Ok'), sg.Button('Cancel')]]
 
     # Create the window
-    removeWindow = sg.Window("Remove a class", removeLayout)
+    removeWindow = sg.Window("Remove Merch", removeLayout)
 
     # Create an event loop
     while True:
