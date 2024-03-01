@@ -119,9 +119,10 @@ if(console=='Add'):
         
         if event=='Ok':
             toAddList=values
+            addAclass(toAddList)
             break
     
-    addAclass(toAddList)
+    
     addWindow.close()
 
 elif(console=='Remove'):
@@ -141,8 +142,9 @@ elif(console=='Remove'):
         
         if event=='Ok':
             toRemove='<tr id=\"'+values[0]+'\">'
+            removeAclass(toRemove)
             break
     
-    removeAclass(toRemove)
+    
     removeWindow.close()
     

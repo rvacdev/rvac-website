@@ -39,7 +39,7 @@ def addAclass(toAddList):
         reader.close()
     with open(CLASS_PATH,'w') as writer:
         for line in lines:
-            if('<tr id="endOfEventTable"></tr>'in line):
+            if('<tr id="endOfMerchTable"></tr>'in line):
                 writer.write(
                     '\t\t\t\t\t<tr id=\"'+ toAddList[0] +'\">\n'+
                     '\t\t\t\t\t\t <td>'+ toAddList[0] +'</td>\n'+
@@ -47,7 +47,7 @@ def addAclass(toAddList):
                     '\t\t\t\t\t\t <td>$'+ toAddList[2] +'</td>\n'+
                     '\t\t\t\t\t\t <td><button id=\"'+ toAddList[0] +'\" class = \"itemButton\">Reseve Now</button></td>\n'+
                     '\t\t\t\t\t</tr>\n'+
-                    '\t\t\t\t\t<tr id="endOfEventTable"></tr>\n'
+                    '\t\t\t\t\t<tr id="endOfMerchTable"></tr>\n'
                 )
             else:
                 writer.write(str(line))
@@ -81,11 +81,11 @@ def removeAclass(toRemove):
     removeAscript(toRemove)
 
 
-layout = [[sg.Text('Would you like to add or remove an event')],
+layout = [[sg.Text('Would you like to add or remove an merch')],
           [sg.Button('Add'), sg.Button('Remove')]]
 
 # Create the Window
-window = sg.Window('Add or Remove an event', layout)
+window = sg.Window('Add or Remove merch', layout)
 
 # Create an event loop
 while True:
@@ -100,10 +100,9 @@ console=event
 window.close()
 
 if(console=='Add'):
-    addLayout = [[sg.Text("What is the name of this event?"), sg.InputText()],
-            [sg.Text("When will this class be? ex. Mondays at 1:00 PM - 3:00 PM")], 
-            [sg.Text("Or December 8th 2024 11:00 AM - 1:30 PM"),sg.InputText()],
-            [sg.Text("What is the price of this event?  $"), sg.InputText()],
+    addLayout = [[sg.Text("What is the name of this merch?"), sg.InputText()],
+            [sg.Text("What is the Image associated with this merch?"),sg.InputText()],
+            [sg.Text("What is the price of this merch?  $"), sg.InputText()],
             [sg.Button('Ok'), sg.Button('Cancel')]]
 
     # Create the window
@@ -119,17 +118,18 @@ if(console=='Add'):
         
         if event=='Ok':
             toAddList=values
+            addAclass(toAddList)
             break
     
-    addAclass(toAddList)
+    
     addWindow.close()
 
 elif(console=='Remove'):
-    removeLayout = [[sg.Text("What is the name of the event you wish to remove?"), sg.InputText()],
+    removeLayout = [[sg.Text("What is the name of the merch you wish to remove?"), sg.InputText()],
             [sg.Button('Ok'), sg.Button('Cancel')]]
 
     # Create the window
-    removeWindow = sg.Window("Remove an event", removeLayout)
+    removeWindow = sg.Window("Remove an merch", removeLayout)
 
     # Create an event loop
     while True:
@@ -141,8 +141,9 @@ elif(console=='Remove'):
         
         if event=='Ok':
             toRemove='<tr id=\"'+values[0]+'\">'
+            removeAclass(toRemove)
             break
     
-    removeAclass(toRemove)
+    
     removeWindow.close()
     
