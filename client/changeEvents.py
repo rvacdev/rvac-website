@@ -29,7 +29,11 @@ def addToJavaScript(toAddList):
         reader.close()
     with open(SCRIPT_PATH,'w') as writer:
         for line in lines:
-            line=line.replace('// END OF PRODUCT LIST','{ id: \''+toAddList[0]+'\', name: \''+toAddList[0]+'\', price: \''+str(toAddList[2][1])+'\', price: \''+str(toAddList[1])+'\' },\n// END OF PRODUCT LIST')
+            line=line.replace('// END OF PRODUCT LIST',
+                              '\t\t{ id: \''+toAddList[0]+
+                              '\', name: \''+toAddList[0]+
+                              '\', price: \''+str(toAddList[2])+
+                              '\', quantity: 0 },\n\t\t// END OF PRODUCT LIST')
             writer.write(str(line))
         writer.close()
 
@@ -60,7 +64,7 @@ def removeAscript(toRemove):
         reader.close()
     with open(SCRIPT_PATH,'w') as writer:
         for line in lines:
-            if(toRemove in line):
+            if('{ id: '+toRemove+', name:' in line):
                 pass
             else:
                 writer.write(str(line))
@@ -103,7 +107,7 @@ if(console=='Add'):
     addLayout = [[sg.Text("What is the name of this event?"), sg.InputText()],
             [sg.Text("When will this class be? ex. Mondays at 1:00 PM - 3:00 PM")], 
             [sg.Text("Or December 8th 2024 11:00 AM - 1:30 PM"),sg.InputText()],
-            [sg.Text("What is the price of this event?  $"), sg.InputText()],
+            [sg.Text("What is the price of this event?  $"), float(sg.InputText())],
             [sg.Button('Ok'), sg.Button('Cancel')]]
 
     # Create the window

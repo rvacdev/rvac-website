@@ -6,18 +6,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const products = [
 
         //START OF PRODUCT LIST
-        { id: "student", name: 'Sudent/Senior Membership', price: 25.00 },
-        { id: "individual", name: 'Individual Membership', price: 45.00 },
-        { id: "family", name: 'Family Membership', price: 65.00 },
-        { id: "familyLarge", name: 'Family Degas Art Lovers', price: 100.00 },
-        { id: "corporate", name: 'Matisse Corporate', price: 250.00 },
-        { id: "benefactor", name: 'Picasso Benefactor', price: 500.00 },
-        { id: "sponsor", name: 'Rembrant Sponsor', price: 1000.00 },
-        { id: "patron", name: 'Da Vinci Patron', price: 2500.00 },
-        { id: "monet", name: 'Monet Patron', price: 5000.00 },
-        { id: "coolArtClass", name: 'Cool Art Class', price: 50.00 },
-        { id: '1', name: 'Donation', price: 0.00 },
-// END OF PRODUCT LIST
+        { id: "student", name: 'Sudent/Senior Membership', price: 25.00,quantity:0 },
+        { id: "individual", name: 'Individual Membership', price: 45.00,quantity:0 },
+        { id: "family", name: 'Family Membership', price: 65.00,quantity:0 },
+        { id: "familyLarge", name: 'Family Degas Art Lovers', price: 100.00,quantity:0 },
+        { id: "corporate", name: 'Matisse Corporate', price: 250.00,quantity:0 },
+        { id: "benefactor", name: 'Picasso Benefactor', price: 500.00,quantity:0 },
+        { id: "sponsor", name: 'Rembrant Sponsor', price: 1000.00,quantity:0 },
+        { id: "patron", name: 'Da Vinci Patron', price: 2500.00,quantity:0 },
+        { id: "monet", name: 'Monet Patron', price: 5000.00,quantity:0 },
+        { id: "coolArtClass", name: 'Cool Art Class', price: 50.00,quantity:0 },
+        { id: 'donate', name: 'Donation', price: 0.00,quantity:0 },
+        // END OF PRODUCT LIST
     ];
 
     // Initialize cart and total
@@ -27,15 +27,29 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to add a product to the cart
     function addToCart(productId) {
         var product = products.find(item => item.id === (productId));
+        var inCart = cart.find(item => item.id === (productId));
 
-        if (product.id==='1'){
-            product.price=parseFloat(document.getElementById('donationInput').value);
-            if (product.price==NaN){
+        if (product.id==='donate'){
+            inputPrice=parseFloat(document.getElementById('donationInput').value);
+            if (inCart===undefined){
+                product.price=inputPrice;
+            }
+            else{
+                product.price=inputPrice+inCart.price
+            }
+            if (product.price===NaN){
                 return 0;
             }
         } 
         if(product.price>0){
-            cart.push(product);
+            if (inCart===undefined){
+                product.quantity+=1;
+                cart.push(product);
+            }
+            else{
+                inCart.quantity+=1;
+            }
+            
             total += product.price;
     
             updateCart();
@@ -59,8 +73,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Populate cart items
         cart.forEach(item => {
             li = document.createElement('li');
-            li.setAttribute("id", item.id, "price", item.price);
-            li.textContent = `${item.name} - ${item.price.toFixed(2)}`;
+            li.setAttribute("id", item.id, "price", (item.price)*(item.quantity), "quantity",item.quantity);
+            li.textContent = `${item.name} - ${((item.price)*(item.quantity)).toFixed(2)} - ${item.quantity}`;
             cartItemsElement.appendChild(li);
 
             // Add remove button
@@ -105,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const index = cart.findIndex(item => item.id === (productId));
 
         if (index !== -1) {
-            total -= cart[index].price;
+            total -= (cart[index].price)*(cart[index].quantity);
             cart.splice(index, 1);
             if (Array.isArray(cart) && cart.length){}
             else{
