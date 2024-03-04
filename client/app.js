@@ -5,6 +5,7 @@ window.paypal
       layout: "vertical",
     },
     async createOrder() {
+      loadCartFromLocalStorage()
       try {
         const response = await fetch("/api/orders", {
           method: "POST",
@@ -16,8 +17,9 @@ window.paypal
           body: JSON.stringify({
             cart: [
               {
-                id: "YOUR_PRODUCT_ID",
+                id: "student",
                 quantity: "YOUR_PRODUCT_QUANTITY",
+                amount: total,
               },
             ],
           }),

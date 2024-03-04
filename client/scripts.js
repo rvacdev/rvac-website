@@ -84,11 +84,15 @@ document.addEventListener('DOMContentLoaded', function () {
     function saveCartToLocalStorage() {
         sessionStorage.setItem('cartText', JSON.stringify(cart));
     }
-    // Function to load the cart from localStorage
-    function loadCartFromLocalStorage() {
+
+    function loadCart() {
         const storedCart = sessionStorage.getItem('cartText');
         cart = storedCart ? JSON.parse(storedCart) : [];
         total = calculateTotal();
+    }
+    // Function to load the cart from localStorage
+    function loadCartFromLocalStorage() {
+        loadCart();
         updateCart();
     }
 
