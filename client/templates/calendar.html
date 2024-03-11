@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Calendar</title>
+    <title>Admin Pannel</title>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"  />
   </head>
 
   <body>
     <nav>
       <ul>
         <li>
-          <a href="index.html"><button id="logo"></button></a>
+          <a href="index"><button id="logo"></button></a>
         </li>
         <li>
-          <a href="index.html"><button id="navb">Home</button></a>
+          <a href="index"><button id="navb">Home</button></a>
         </li>
         <li>
           <div class="dropdown">
-            <a href="class.html"><button id="navb">Shop</button></a>
+            <a href="class"><button id="navb">Shop</button></a>
             <div class="dropdown-content">
-              <a href="memberdon.html"><button id="navDropdown">Membership</button></a>
-              <a href="class.html#artClasses"><button id="navDropdown">Class/Workshop</button></a>
-              <a href="events.html#event"><button id="navDropdown">Events</button></a>
-              <a href="gallery.html"><button id="navDropdown">Gallery</button></a>
-              <a href="merch.html#merch"><button id="navDropdown">Merch</button></a>
+              <a href="memberdon"><button id="navDropdown">Membership</button></a>
+              <a href="class#artClasses"><button id="navDropdown">Class/Workshop</button></a>
+              <a href="class#event"><button id="navDropdown">Events</button></a>
+              <a href="class"><button id="navDropdown">Gallery</button></a>
+              <a href="class#merch"><button id="navDropdown">Merch</button></a>
             </div>
           </div>
         </li>
         <li>
-          <a href="calendar.html"><button id="navb">Calendar</button></a>
+          <a href="calendar"><button id="navb">Calendar</button></a>
         </li>
 
         <li>
           <div class="dropdown">
-            <a href="about.html"><button id="navb">About us</button></a>
+            <a href="about"><button id="navb">About us</button></a>
             <div class="dropdown-content">
-              <a href="about.html#contact">
+              <a href="about#contact">
                 <button id="navDropdown">Contact Us</button>
               </a>
-              <a href="about.html#history">
+              <a href="about#history">
                 <button id="navDropdown">History</button>
               </a>
             </div>
@@ -82,7 +82,7 @@
           We are thankful to the National Endowment for the Arts for their
           support of our programs.
         </footer>
-        <script src="scripts.js"></script>
+        <script src="{{ url_for('static', filename='JS/scripts.js') }}"></script>
       </main>
     </div>
   </body>
