@@ -67,20 +67,22 @@
     <div id="wrapper">
       <main>
         
-        <form id="admin login">
+        <form id="admin login" action="#" method="post">
           <label for="username">Username:</label><br>
           <input type="text" id="username" name="username"><br>
           <label for="pasword">Password:</label><br>
           <input type="text" id="pasword" name="password"><br>
           <input type="submit" value="Submit">
         </form>
-
+        {% if current_user.is_authenticated %}
         <form action="/editClass/">
           <input type="submit" value="Edit Classes" />
         </form>
+        {% if current_user.is_authenticated %}
         <form action="/editEvents/">
           <input type="submit" value="Edit Events" />
         </form>
+        {% if current_user.is_authenticated %}
         <form action="/editMerch/">
           <input type="submit" value="Edit Mechandise" />
         </form>
