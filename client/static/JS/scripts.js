@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const cartTotalElement = document.getElementById('cart-total');
         const cartCounterElement = document.getElementById('cartText');
 
+
         // Clear existing cart items
         cartItemsElement.textContent = '';
 
@@ -102,7 +103,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function loadCart() {
         const storedCart = sessionStorage.getItem('cartText');
         cart = storedCart ? JSON.parse(storedCart) : [];
+        console.log(cart)
         total = calculateTotal();
+        console.log("Total: ", total)
     }
     // Function to load the cart from localStorage
     function loadCartFromLocalStorage() {

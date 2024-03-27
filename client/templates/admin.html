@@ -77,15 +77,17 @@
         <form action="/editClass/">
           <input type="submit" value="Edit Classes" />
         </form>
+        {% endif %}
         {% if current_user.is_authenticated %}
         <form action="/editEvents/">
           <input type="submit" value="Edit Events" />
         </form>
+        {% endif %}
         {% if current_user.is_authenticated %}
         <form action="/editMerch/">
           <input type="submit" value="Edit Mechandise" />
         </form>
-
+        {% endif %}
         <footer>
           © 1981-2023 RIVER VALLEY ARTS CENTER.
           <div id="endowment"></div>
@@ -93,7 +95,6 @@
           We are thankful to the National Endowment for the Arts for their
           support of our programs.
         </footer>
-        <script src="{{ url_for('static', filename='JS/scripts.js') }}"></script>
       </main>
     </div>
   </body>
