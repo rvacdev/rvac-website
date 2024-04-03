@@ -94,9 +94,13 @@ def  editMerch():
     exec(file.read())
 
 @app.route('/api/orders', methods=['POST'])
-def create_order():
+def create_create_order():
     try:
-        cart = request.json.get('cart')
+        data = request.json
+        cart = data.get('cart', [])
+        # Ensure total is calculated as a string formatted to two decimal places
+        total = "{:.2f}".format(sum(item['amount'] * item['quantity'] for item in cart))
+
         access_token = generate_access_token()
         url = f"{BASE_URL}/v2/checkout/orders"
         payload = {
@@ -104,7 +108,7 @@ def create_order():
             "purchase_units": [{
                 "amount": {
                     "currency_code": "USD",
-                    "value": "100.00"
+                    "value": total  # Use the dynamically calculated total here
                 }
             }]
         }
@@ -130,6 +134,8 @@ def capture_order(orderID):
             "Content-Type": "application/json",
             "Authorization": f"Bearer {access_token}"
         })
+        
+        
 
         return handle_response(response)
 
