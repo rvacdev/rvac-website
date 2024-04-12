@@ -73,17 +73,17 @@
           <input type="text" id="pasword" name="password"><br>
           <input type="submit" value="Submit">
         </form>
-        {% if current_user.is_authenticated %}
+        {% if session['loggedin']==True %}
         <form action="/editClass/">
           <input type="submit" value="Edit Classes" />
         </form>
         {% endif %}
-        {% if current_user.is_authenticated %}
+        {% if session['loggedin']==True %}
         <form action="/editEvents/">
           <input type="submit" value="Edit Events" />
         </form>
         {% endif %}
-        {% if current_user.is_authenticated %}
+        {% if session['loggedin']==True %}
         <form action="/editMerch/">
           <input type="submit" value="Edit Mechandise" />
         </form>

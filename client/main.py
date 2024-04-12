@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, jsonify, send_from_directory
+from flask import Flask, render_template, request, jsonify, send_from_directory,redirect,url_for,session
 import requests
 import base64
 import os
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, UserMixin, login_user
+from flask_mysqldb import MySQL
+import MySQLdb.cursors
+import MySQLdb.cursors, re, hashlib
 
 app = Flask(__name__)
 
@@ -12,45 +13,36 @@ PAYPAL_CLIENT_SECRET = "EKIsp9-6e2RAK6Rs_ilhluyHuSbprASf6HYQQs5wZ5CuN3avKulrAqKK
 BASE_URL = "https://api-m.sandbox.paypal.com"
 
 
-#CHANGE LOCATION OF DATBASE TO CONNECT TO THE ACCTUAL DATABASE
-'''app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite"
+app.secret_key=''
 
-#EDIT THE SECRET KEY
-app.config['SECRET_KEY']='ENTER SECRET KEY'
+app.secret_key='sec'
+app.config['MYSQL_HOST']='localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = '22Million$'
+app.config['MYSQL_DB']='usertesting'
 
-db=SQLAlchemy()
-
-manager=LoginManager()
-manager.init_app(app)
-
-class Users(UserMixin,db.Model):
-  #CHANGE THESE VALUES TO MATCH OUR DATABASE
-  id=db.column(db.String(250), unique=True,nullable=False)
-  password = db.Column(db.String(250),nullable=False)
-
-db.init_app(app)
-
-with app.app_context():
-    db.create_all()
-
-@manager.user_loader
-def loader_user(userID):
-   return Users.query.get(userID)'''
-
-
-
+mysql=MySQLdb.connect('localhost','root','22Million$','usertesting')
+cursor = mysql.cursor()
 #Display Webpage
 
-@app.route('/', methods=["GET",'POST'])
+@app.route('/admin', methods=['GET','POST'])
 def admin():
-  '''if request.method=='POST':
-     user=Users.query.filter_by(username=request.form.get("username")).first()
-     if user.password==request.form.get('password'):
-        login_user(user)
-        return render_template('admin.html')'''
-  return render_template('admin.html')
+    session['loggedin']=False
+    errorMsg=''
+    if request.method=='POST' and 'username' in request.form and 'password' in request.form:
+        username=request.form['username']
+        password=request.form['password']
 
-@app.route("/index")
+        cursor.execute('SELECT * FROM usertable WHERE users =\''+username+'\' AND passwords =\''+password+'\'')
+        account=cursor.fetchone()
+
+        if account:
+            session['loggedin']=True
+            
+        else: errorMsg='incorrect login'
+    return render_template('admin.html', msg=errorMsg)
+
+@app.route("/")
 def index():
     return render_template('index.html')
 
@@ -172,7 +164,7 @@ def serve_index():
     return send_from_directory('client', 'checkout.html')
 
 if __name__ == "__main__":
-    app.run(port=PORT)
+    app.run(port=5000)
 
 if __name__ == '__main__':
   app.run(debug=True)
