@@ -2,9 +2,8 @@ import PySimpleGUI as sg
 import os
 
 #change url locations as needed
-CLASS_PATH=os.path.relpath('client\\class.html')
-SCRIPT_PATH=os.path.relpath('client\\scripts.js')
-
+CLASS_PATH=os.path.relpath('client\\templates\\class.html')
+SCRIPT_PATH=os.path.relpath('client\\static\\JS\\scripts.js')
 
 def findInFile(idToFind,widget,soup):
     location=soup.find(widget, {"id":idToFind})

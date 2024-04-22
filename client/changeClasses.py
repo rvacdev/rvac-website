@@ -2,8 +2,8 @@ import PySimpleGUI as sg
 import os
 
 #change url locations as needed
-CLASS_PATH=os.path.relpath('client\\class.html')
-SCRIPT_PATH=os.path.relpath('client\\scripts.js')
+CLASS_PATH=os.path.relpath('client\\templates\\class.html')
+SCRIPT_PATH=os.path.relpath('client\\static\\JS\\scripts.js')
 
 
 def findInFile(idToFind,widget,soup):
@@ -105,7 +105,7 @@ window.close()
 
 if(console=='Add'):
     addLayout = [[sg.Text("What is the name of this class?"), sg.InputText()],
-            [sg.Text("What is the price of this class?  $"), sg.InputText()],
+            [sg.Text("When will this class be? ex. Mondays at 1:00 PM - 3:00 PM")],
             [sg.Text("Or December 8th 2024 11:00 AM - 1:30 PM"),sg.InputText()],
             [sg.Text("What is the price of this class?  $"), sg.InputText()],
             [sg.Button('Ok'), sg.Button('Cancel')]]

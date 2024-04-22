@@ -70,20 +70,29 @@ def classpage():
 def memberdon():
     return render_template('memberdon.html')
 
-@app.route('/editClass/')
+@app.route('/editClass')
 def editClass():
-  with open("changeClasses.py") as file:
-    exec(file.read())
+  with open("client\changeClasses.py") as file:
+    try:
+        exec(file.read())
+    except Exception as e:
+        return f'Error executing script: {str(e)}'
 
-@app.route('/editEvents/')
+@app.route('/editEvents')
 def  editEvents():
-  with open("changeEvents.py") as file:
-    exec(file.read())
-
-@app.route('/editMerch/')
+  with open("client\changeEvents.py") as file:
+    try:
+        exec(file.read())
+    except Exception as e:
+        return f'Error executing script: {str(e)}'
+    
+@app.route('/editMerch')
 def  editMerch():
-  with open("changeMerch.py") as file:
-    exec(file.read())
+  with open("client\changeMerch.py") as file:
+    try:
+        exec(file.read())
+    except Exception as e:
+        return f'Error executing script: {str(e)}'
 
 @app.route('/api/orders', methods=['POST'])
 def create_create_order():

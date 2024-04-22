@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: "monet", name: 'Monet Patron', price: 5000.00,quantity:0 },
         { id: "coolArtClass", name: 'Cool Art Class', price: 50.00,quantity:0 },
         { id: 'donate', name: 'Donation', price: 0.00,quantity:0 },
-        // END OF PRODUCT LIST
+				{ id: 'asd', name: 'asd', price: '123', quantity: 0 },
+		// END OF PRODUCT LIST
     ];
 
     // Initialize cart and total

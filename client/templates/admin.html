@@ -74,17 +74,17 @@
           <input type="submit" value="Submit">
         </form>
         {% if session['loggedin']==True %}
-        <form action="/editClass/">
+        <form action="/editClass">
           <input type="submit" value="Edit Classes" />
         </form>
         {% endif %}
         {% if session['loggedin']==True %}
-        <form action="/editEvents/">
+        <form action="/editEvents">
           <input type="submit" value="Edit Events" />
         </form>
         {% endif %}
         {% if session['loggedin']==True %}
-        <form action="/editMerch/">
+        <form action="/editMerch">
           <input type="submit" value="Edit Mechandise" />
         </form>
         {% endif %}
