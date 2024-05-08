@@ -30,7 +30,7 @@ def addToJavaScript(toAddList):
     with open(SCRIPT_PATH,'w') as writer:
         for line in lines:
             line=line.replace('// END OF PRODUCT LIST',
-                              '\t\t{ id: \''+toAddList[0]+
+                              '{ id: \''+toAddList[0]+
                               '\', name: \''+toAddList[0]+
                               '\', price: \''+str(toAddList[2])+
                               '\', quantity: 0 },\n\t\t// END OF PRODUCT LIST')

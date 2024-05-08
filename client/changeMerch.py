@@ -29,7 +29,7 @@ def addToJavaScript(toAddList):
     with open(SCRIPT_PATH,'w') as writer:
         for line in lines:
             line=line.replace('// END OF PRODUCT LIST',
-                              '\t\t{ id: \''+toAddList[0]+
+                              '{ id: \''+toAddList[0]+
                               '\', name: \''+toAddList[0]+
                               '\', price: \''+str(toAddList[1])+
                               '\', quantity: 0 },\n\t\t// END OF PRODUCT LIST')
@@ -46,8 +46,8 @@ def addAclass(toAddList):
                 writer.write(
                     '\t\t\t\t\t<tr id=\"'+ toAddList[0] +'\">\n'+
                     '\t\t\t\t\t\t <td>'+ toAddList[0] +'</td>\n'+
-                    '\t\t\t\t\t\t <td>'+ toAddList[2] +'</td>\n'+
-                    '\t\t\t\t\t\t <td>$'+ toAddList[1] +'</td>\n'+
+                    '\t\t\t\t\t\t <td>$'+ toAddList[2] +'</td>\n'+
+                    '\t\t\t\t\t\t <td>'+ toAddList[1] +'</td>\n'+
                     '\t\t\t\t\t\t <td><button id=\"'+ toAddList[0] +'\" class = \"itemButton\">Reseve Now</button></td>\n'+
                     '\t\t\t\t\t</tr>\n'+
                     '\t\t\t\t\t<tr id="endOfMerchTable"></tr>\n'

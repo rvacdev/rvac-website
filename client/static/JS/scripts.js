@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: "monet", name: 'Monet Patron', price: 5000.00,quantity:0 },
         { id: "coolArtClass", name: 'Cool Art Class', price: 50.00,quantity:0 },
         { id: 'donate', name: 'Donation', price: 0.00,quantity:0 },
-				{ id: 'asd', name: 'asd', price: '123', quantity: 0 },
+		{ id: 'cool event', name: 'cool event', price: '50', quantity: 0 },
+		{ id: 'Cool Merch', name: 'Cool Merch', price: 'placeholder.png', quantity: 0 },
 		// END OF PRODUCT LIST
     ];
 
